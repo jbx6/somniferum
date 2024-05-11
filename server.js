@@ -5,7 +5,7 @@ const fs = require('fs');
 const { createObjectCsvWriter } = require('csv-writer');
 
 const app = express();
-const port = 3009;
+const PORT = process.env.PORT || 3009;
 const csvFilePath = 'data.csv';
 
 app.use(express.static('public'));
@@ -77,6 +77,6 @@ app.post('/delete-plant', (req, res) => {
         });
 });
 
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });
