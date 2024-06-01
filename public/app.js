@@ -4,15 +4,16 @@ document.getElementById('plantForm').addEventListener('submit', async (event) =>
     const formData = new FormData(event.target);
     const name = formData.get('name');
     const found = formData.get('foundAt');
+    const amount = formData.get('amount');
     const type = formData.get('type');
-    const formDate = new Date(formData.get('formDate')).toLocaleDateString();
+    const formDate = new Date(formData.get('formDate'))
 
     const response = await fetch('/add-plant', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, found, type, formDate })
+        body: JSON.stringify({ name, found, amount, type, formDate })
     });
 
     if (response.ok) {
@@ -54,36 +55,36 @@ document.addEventListener('DOMContentLoaded', async () => {
     */
 
     // render as table
-    const table = document.getElementById('plantsTable');
+    // const table = document.getElementById('plantsTable');
+    const app = document.querySelector('#app');
+    const table = document.createElement('table');
     const header = table.createTHead();
     const headerRow = header.insertRow();
     const tbody = table.createTBody();
-    const headings = ['Name', 'Found', 'Date', 'Type', 'Actions'];
+    const headings = ['Name', 'Found', 'Date', 'Amount', 'Type', 'Actions'];
 
     headings.map((heading) => {
         const th = document.createElement('th');
         th.textContent = heading;
-        th.style.textAlign = 'left';
         headerRow.appendChild(th);
     });
 
     plants.map((plant) => {
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.style.backgroundColor = 'red';
-        deleteButton.style.color = 'white';
-        deleteButton.style.border = 'none';
-        deleteButton.style.cursor = 'pointer';
+        deleteButton.classList.add('delete-button');
+        // deleteButton.style.backgroundColor = 'red';
+        // deleteButton.style.color = 'white';
+        // deleteButton.style.border = 'none';
 
         const row = tbody.insertRow();
-        const { name, found, type, date } = plant;
+        const { name, found, amount, type, date } = plant;
 
-        [name, found, date, type, deleteButton].map((value, index) => {
+        [name, found, date, amount, type, deleteButton].map((value, index) => {
             const cell = row.insertCell();
-            cell.style.paddingTop = '8px';
-            cell.style.paddingRight = '8px';
+            //cell.style.paddingTop = '8px';
+            //cell.style.paddingRight = '8px';
 
-            if (index === 4) {
+            if (index === 5) {
                 deleteButton.addEventListener('click', async () => {
                     const response = await fetch('/delete-plant', {
                         method: 'POST',
@@ -112,4 +113,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
+    app.appendChild(table);
 });

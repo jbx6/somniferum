@@ -5,7 +5,7 @@ const fs = require('fs');
 const { createObjectCsvWriter } = require('csv-writer');
 
 const app = express();
-const PORT = process.env.PORT || 3009;
+const PORT = process.env.PORT || 6197;
 const csvFilePath = 'data.csv';
 
 app.use(express.static('public'));
@@ -13,13 +13,13 @@ app.use(express.json()); // Add this line to parse JSON request bodies
 
 // endpoint to add a plant
 app.post('/add-plant', (req, res) => {
-    const { name, found, type, formDate } = req.body; // Extract data from request body
+    const { name, found, amount, type, formDate } = req.body; // Extract data from request body
     const date = new Date(formDate);
-    const newData = { name, found, date: date.toLocaleDateString(), time: date.toLocaleTimeString(), type };
+    const newData = { name, found, date: date.toLocaleDateString(), time: date.toLocaleTimeString(), amount, type };
 
     const csvWriter = createObjectCsvWriter({
         path: csvFilePath,
-        header: [{ id: 'name', title: 'name' }, { id: 'found', title: 'found' }, { id: 'date', title: 'date' }, { id: 'time', title: 'time' }, { id: 'type', title: 'type' }],
+        header: [{ id: 'name', title: 'name' }, { id: 'found', title: 'found' }, { id: 'date', title: 'date' }, { id: 'time', title: 'time' }, { id: 'amount', title: 'amount'}, { id: 'type', title: 'type' }],
         append: true
     });
 
@@ -67,7 +67,7 @@ app.post('/delete-plant', (req, res) => {
         .on('end', () => {
             const csvWriter = createObjectCsvWriter({
                 path: csvFilePath,
-                header: [{ id: 'name', title: 'name' }, { id: 'found', title: 'found' }, { id: 'date', title: 'date' }, { id: 'time', title: 'time' }, { id: 'type', title: 'type' }]
+                header: [{ id: 'name', title: 'name' }, { id: 'found', title: 'found' }, { id: 'date', title: 'date' }, { id: 'time', title: 'time' }, { id: 'amount', title: 'amount'}, { id: 'type', title: 'type' }]
             });
 
             csvWriter.writeRecords(plants)

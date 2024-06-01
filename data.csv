@@ -1,5 +1,11 @@
-name,found,date,time,type
-cannabis,jonnysCali,29/4/2024,10:33:12 AM,seed
-Blackcurrant Bush,Home,29/9/2023,1:00:00 AM,Cutting
-Papaver Somniferum,Home,8/5/2024,1:00:00 AM,Seed
-Marigold,Bedroom,3/5/2024,12:00:00 AM,Seed
+name,found,date,time,amount,type
+cannabis,jonnysCali,29/4/2024,10:33:12 AM,1,seed
+Blackcurrant Bush,Home,29/9/2023,1:00:00 AM,1,Cutting
+Papaver Somniferum,Home,8/5/2024,1:00:00 AM,1,Seed
+Marigold,Bedroom,3/5/2024,12:00:00 AM,1,Seed
+Tomatoes,Home,12/5/2024,12:00:00 AM,5,From Compost
+?Pine,Camelia pot,16/5/2024,Invalid Date,2,Seedling
+Radishes,Put into the ground,16/5/2024,Invalid Date,7,Seedling
+Avocado,Home,Invalid Date,Invalid Date,2,From Compost
+Rocket,Supermarket,5/31/2024,1:00:00 AM,6,Seed
+Cauliflower,Supermarket,5/7/2024,1:00:00 AM,12,Seed

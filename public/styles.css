@@ -1,0 +1,115 @@
+body {
+    background-color: #262626;
+    color: #f2f2f2;
+    font-family: sans-serif;
+    padding: 10px;
+    height: 100vh;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.colour-element {
+    border: 1px solid #3d3d3d;
+    border-radius: 12px;
+    padding: 8px 12px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+
+table {
+    border: 1px solid #3b3b3b;
+    border-radius: 12px;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+thead {
+    background-color: #3d3d3d;
+}
+
+th {
+    border: none;
+    padding: 12px 12px;
+    text-align: left;
+}
+th:last-child {
+    text-align: right;
+}
+
+tr {
+    border-bottom: 1px solid #3b3b3b;
+}
+
+td {
+    padding: 8px 12px;
+}
+td:last-child {
+    text-align: right;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: #f2f2f2;
+}
+
+form input {
+    background-color: #262626;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+    padding: 8px 12px;
+    flex: 1;
+    color: #f2f2f2;
+}
+
+form select {
+    background-color: #262626;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+    padding: 8px 12px;
+    flex: 1;
+    color: #f2f2f2;
+}
+
+.add-aquilegia-btn {
+    background-color: #3d3d3d;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+    color: #f2f2f2;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-weight: 600;
+    resize: none;
+}
+.add-aquilegia-btn:hover {
+    background-color: #262626;
+    border: 1px solid #3d3d3d;
+    font-weight: 600;
+    resize: none;
+}
+
+.delete-button {
+    background-color: transparent;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+    color: #f2f2f2;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+.delete-button:hover {
+    background-color: #3d3d3d;
+}
+.delete-button::after {
+    content: "X";
+}
